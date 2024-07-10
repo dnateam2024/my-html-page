@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Get User Location</title>
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+
+    function showPosition(position) {
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      window.location.href = `https://your-tableau-dashboard-url.com?lat=${lat}&lon=${lon}`;
+    }
+  </script>
+</head>
+<body onload="getLocation()">
+  <h1>Finding your location...</h1>
+</body>
+</html>
